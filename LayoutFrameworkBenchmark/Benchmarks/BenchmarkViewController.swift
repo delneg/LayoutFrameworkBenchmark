@@ -28,25 +28,11 @@ class BenchmarkViewController: UITableViewController {
             let data = FeedItemData.generate(count: viewCount)
             return CollectionViewControllerFeedItemFlexLayoutView(data: data)
         }),
-        
-        ViewControllerData(title: "LayoutKit 10.0", factoryBlock: { viewCount in
-            let data = FeedItemData.generate(count: viewCount)
-            return CollectionViewControllerFeedItemLayoutKitView(data: data)
-        }),
+
 
         ViewControllerData(title: "Manual Layout", factoryBlock: { viewCount in
             let data = FeedItemData.generate(count: viewCount)
             return CollectionViewControllerFeedItemManualView(data: data)
-        }),
-		
-		ViewControllerData(title: "NKFrameLayoutKit 2.4", factoryBlock: { viewCount in
-			let data = FeedItemData.generate(count: viewCount)
-			return CollectionViewControllerFeedItemNKFrameLayoutKitView(data: data)
-		}),
-        
-        ViewControllerData(title: "NotAutoLayout 3.2", factoryBlock: { viewCount in
-            let data = FeedItemData.generate(count: viewCount)
-            return CollectionViewControllerFeedItemNotAutoLayoutView(data: data)
         }),
         
         ViewControllerData(title: "PinLayout 1.9", factoryBlock: { viewCount in
@@ -60,13 +46,8 @@ class BenchmarkViewController: UITableViewController {
         }),
 
         ViewControllerData(title: "UIStackView", factoryBlock: { viewCount in
-            if #available(iOS 9.0, *) {
-                let data = FeedItemData.generate(count: viewCount)
-                return CollectionViewControllerFeedItemUIStackView(data: data)
-            } else {
-                NSLog("UIStackView only supported on iOS 9+")
-                return nil
-            }
+            let data = FeedItemData.generate(count: viewCount)
+            return CollectionViewControllerFeedItemUIStackView(data: data)
         })
     ]
 
